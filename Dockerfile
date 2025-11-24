@@ -18,7 +18,7 @@ RUN apt-get update -y && \
 COPY --from=easy-novnc-build /bin/easy-novnc /usr/local/bin/
 COPY supervisord.conf /etc/
 RUN mkdir -p /etc/xdg/openbox
-RUN echo 'midori --fullscreen https://www.myandroid.org/run/start.php https://www.myandroid.org/playonline/androidemulator.php &' >> /etc/xdg/openbox/autostart
+RUN echo 'sleep 3 && midori --fullscreen https://www.myandroid.org/run/start.php https://www.myandroid.org/playonline/androidemulator.php &' >> /etc/xdg/openbox/autostart
 
 EXPOSE 8080
 ENTRYPOINT ["/bin/bash", "-c", "/usr/bin/supervisord"]
